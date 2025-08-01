@@ -19,7 +19,7 @@ public class Calculator implements ICalculator {
         try {
             result = Math.subtractExact(a, b);
         } catch (ArithmeticException e){
-            System.out.println("Ошибка переполнения при  вычитании");
+            System.out.println("Ошибка переполнения при вычитании");
         }
         return result;
     }
