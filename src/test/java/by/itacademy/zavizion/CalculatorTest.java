@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class CalculatorTest {
     private Calculator calculator;
 
@@ -111,4 +113,115 @@ public class CalculatorTest {
         Assertions.assertEquals(actual, 0);
     }
 
+    @Test
+    @DisplayName("Проверка метода умножения положительного числа на положительное число: 12 * 3 = 36")
+    public void testMultiplicationPositiveOnPositive() {
+        int actual = calculator.multiply(12, 3);
+        Assertions.assertEquals(actual, 36);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения отрицательного числа на положительное число: -15 * 3 = -45")
+    public void testMultiplicationNegativeOnPositive() {
+        int actual = calculator.multiply(-15, 3);
+        Assertions.assertEquals(actual, -45);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения положительного числа на отрицательное число: 25 * (-4) = -100")
+    public void testMultiplicationPositiveOnNegative() {
+        int actual = calculator.multiply(25, -4);
+        Assertions.assertEquals(actual, -100);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения отрицательного числа на отрицательное число: -100 * (-3) = 300")
+    public void testMultiplicationNegativeOnNegative() {
+        int actual = calculator.multiply(-100, -3);
+        Assertions.assertEquals(actual, 300);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения нуля на отрицательное число: 0 * (-999) = 0")
+    public void testMultiplicationPositiveOnZero() {
+        int actual = calculator.multiply(0, -999);
+        Assertions.assertEquals(actual, 0);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения позитивного числа на единицу: 444 * 1 = 444")
+    public void testMultiplicationPositiveOnOne() {
+        int actual = calculator.multiply(444, 1);
+        Assertions.assertEquals(actual, 444);
+    }
+
+    @Test
+    @DisplayName("Проверка метода умножения единицы на негативное число: 1 * -678 = -678")
+    public void testMultiplicationOneOnNegative() {
+        int actual = calculator.multiply(1, -678);
+        Assertions.assertEquals(actual, -678);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления положительного числа на положительного число: 36 / 5 = 7")
+    public void testDividePositiveOnPositive() {
+        double actual = calculator.divide(36, 5);
+        Assertions.assertEquals(actual, 7);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления положительного числа на отрицательное число: 100 / (-3) = -20")
+    public void testDividePositiveOnNegative() {
+        double actual = calculator.divide(100, -5);
+        Assertions.assertEquals(actual, -20);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления отрицательного числа на положительное число: -16 / 4 = -4")
+    public void testDivideNegativeOnPositive() {
+        double actual = calculator.divide(-16, 4);
+        Assertions.assertEquals(actual, -4);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления отрицательного числа на отрицательное число: -40 / (-6) = 6")
+    public void testDivideNegativeOnNegative() {
+        double actual = calculator.divide(-40, -6);
+        Assertions.assertEquals(actual, 6);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления положительного числа на единицу: 56 / 1 = 56")
+    public void testDividePositiveOnOne() {
+        double actual = calculator.divide(56, 1);
+        Assertions.assertEquals(actual, 56);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления отрицательного числа на единицу: -100 / 1 = -100")
+    public void testDivideNegativeOnOne() {
+        double actual = calculator.divide(-100, 1);
+        Assertions.assertEquals(actual, -100);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления нуля на положительное число: 0 / 99 = 0")
+    public void testDivideZeroOnPositive() {
+        double actual = calculator.divide(0, 99);
+        Assertions.assertEquals(actual, 0);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления нуля на отрицательное число: 0 / -13 = 0")
+    public void testDivideZeroOnNegative() {
+        double actual = calculator.divide(0, -13);
+        Assertions.assertEquals(actual, 0);
+    }
+
+    @Test
+    @DisplayName("Проверка метода деления на нуль: 567 / 0 = 0")
+    public void testDivideOnZero() {
+        double actual = calculator.divide(567, 0);
+        Assertions.assertEquals(actual, 0);
+    }
 }
