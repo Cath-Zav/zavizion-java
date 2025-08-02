@@ -9,6 +9,7 @@ public class Calculator implements ICalculator {
             result = Math.addExact(a, b);
         } catch(ArithmeticException e) {
             System.out.println("Ошибка переполнения при сложении");
+            throw e;
         }
         return result;
     }
@@ -20,6 +21,7 @@ public class Calculator implements ICalculator {
             result = Math.subtractExact(a, b);
         } catch (ArithmeticException e){
             System.out.println("Ошибка переполнения при вычитании");
+            throw e;
         }
         return result;
     }
@@ -31,6 +33,7 @@ public class Calculator implements ICalculator {
             result = Math.multiplyExact(a, b);
         } catch(Exception e) {
             System.out.println("Ошибка переполнения при умножении");
+            throw e;
         }
         return result;
     }
@@ -42,6 +45,7 @@ public class Calculator implements ICalculator {
             result = a / b;
         } catch(Exception e) {
             System.out.println("Ошибка деления на ноль");
+            throw e;
         }
         return result;
     }
