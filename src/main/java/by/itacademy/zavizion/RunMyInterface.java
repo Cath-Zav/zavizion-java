@@ -7,7 +7,6 @@ public class RunMyInterface {
         MyInterface myPredicate = x -> x > 0;
         System.out.println(myPredicate.check(10));   //true
 
-        //Аналогично, но используется встроенный функциональный интерфейс java.util.function.Predicate
         Predicate<Integer> predicate = x -> x > 0;
         System.out.println(predicate.test(-10));    //false
 
