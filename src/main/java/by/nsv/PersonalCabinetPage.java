@@ -12,6 +12,7 @@ public class PersonalCabinetPage {
     private final String BUTTON_LOGIN = "Login";
     private final String USER_LOGIN_POPUP_ERROR = "USER_LOGIN_POPUP-error";
     private final String USER_PASSWORD_POPUP_ERROR = "USER_PASSWORD_POPUP-error";
+    private final String LOGIN_OR_PASSWORD_ARE_NOT_CORRECT_ERROR = "//div[@class='alert alert-danger']/p";
 
     public PersonalCabinetPage(WebDriver driver) {
         this.driver = driver;
@@ -39,6 +40,10 @@ public class PersonalCabinetPage {
 
     public String getUserPasswordPopupError() {
         return driver.findElement(By.id(USER_PASSWORD_POPUP_ERROR)).getText();
+    }
+
+    public String getLoginOrPasswordNotCorrectError() {
+        return driver.findElement(By.xpath(LOGIN_OR_PASSWORD_ARE_NOT_CORRECT_ERROR)).getText();
     }
 }
 
