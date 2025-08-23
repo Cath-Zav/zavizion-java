@@ -1,10 +1,10 @@
-package by.nsv;
+package by.nsv.pages;
 
+import by.nsv.webdriver.WebDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class PersonalCabinetPage {
-    WebDriver driver;
+public class LoginPage {
+    org.openqa.selenium.WebDriver driver;
 
     private final String HEAD_FORM_TITLE = "//div[@class='form_head']/h2";
     private final String USER_LOGIN_POPUP = "USER_LOGIN_POPUP";
@@ -14,12 +14,12 @@ public class PersonalCabinetPage {
     private final String USER_PASSWORD_POPUP_ERROR = "USER_PASSWORD_POPUP-error";
     private final String LOGIN_OR_PASSWORD_ARE_NOT_CORRECT_ERROR = "//div[@class='alert alert-danger']/p";
 
-    public PersonalCabinetPage(WebDriver driver) {
-        this.driver = driver;
+    public LoginPage() {
+        this.driver = WebDriver.getDriver();
     }
 
     public String getHeadFormTitleText() {
-        return driver.findElement(By.xpath(HEAD_FORM_TITLE)).getText();
+        return WebDriver.getTextFromElement(HEAD_FORM_TITLE);
     }
 
     public void sendKeysLogin(String login) {
